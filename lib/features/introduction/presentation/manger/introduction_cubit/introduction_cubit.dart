@@ -1,0 +1,13 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class IntroCubit extends Cubit<int> {
+  IntroCubit() : super(0);
+
+  void nextStep() {
+    if (state < 3) emit(state + 1);
+  }
+
+  void previousStep() {
+    if (state > 0) emit(state - 1);
+  }
+}
