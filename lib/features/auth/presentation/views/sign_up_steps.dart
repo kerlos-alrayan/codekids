@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'step_cubit.dart';
+import '../manger/sign_up_steps_cubit/sign_up_steps_cubit.dart';
 
-class StepScreen extends StatelessWidget {
+class SignUpSteps extends StatelessWidget {
   final int totalSteps;
 
-  const StepScreen({
-    Key? key,
+  const SignUpSteps({
+    super.key,
     required this.totalSteps,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -38,30 +38,15 @@ class StepScreen extends StatelessWidget {
                             value: progress,
                             minHeight: 10,
                             backgroundColor: Colors.grey[300],
-                            valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFF4E7EFF)),
+                            valueColor: const AlwaysStoppedAnimation<Color>(
+                                Color(0xFF4E7EFF)),
                           ),
                         ),
                       ),
                     ],
                   ),
                   const SizedBox(height: 30),
-                  Text(
-                    "Step $currentStep of $totalSteps",
-                    style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 20),
-                  TextField(
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      hintText: 'Age',
-                      filled: true,
-                      fillColor: Colors.grey[100],
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide.none,
-                      ),
-                    ),
-                  ),
+                  _buildStepContent(currentStep),
                   const Spacer(),
                   SizedBox(
                     width: double.infinity,
@@ -86,5 +71,91 @@ class StepScreen extends StatelessWidget {
         );
       },
     );
+  }
+
+  Widget _buildStepContent(int currentStep) {
+    switch (currentStep) {
+      case 1:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "How old are you?",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+            TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                hintText: 'Age',
+                filled: true,
+                fillColor: Colors.grey[100],
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide.none,
+                ),
+              ),
+            ),
+          ],
+        );
+
+      case 2:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "What’s your gender?",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text("Male"),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text("Female"),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        );
+
+      case 3:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text(
+              "Choose your birthdate",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20),
+            Text("Date Picker here..."),
+          ],
+        );
+
+      case 4:
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text(
+              "Accept terms and conditions",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20),
+            Text("Checkbox or agreement text..."),
+          ],
+        );
+
+      default:
+        return const Text("Invalid step");
+    }
   }
 }

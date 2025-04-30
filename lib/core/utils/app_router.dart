@@ -1,3 +1,4 @@
+import 'package:codekids/features/auth/presentation/views/sign_up_steps.dart';
 import 'package:codekids/features/home/presentation/views/bottom_nav_bar.dart';
 import 'package:codekids/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ abstract class AppRouter {
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) =>
-          BottomNavBar(),
+          SignUpSteps(totalSteps: 4),
     ),
     GoRoute(
       path: kIntroductionView,
