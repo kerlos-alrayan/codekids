@@ -1,3 +1,4 @@
+import 'package:codekids/features/home/presentation/views/bottom_nav_bar.dart';
 import 'package:codekids/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -13,7 +14,7 @@ abstract class AppRouter {
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) =>
-          const SplashView(),
+          BottomNavBar(),
     ),
     GoRoute(
       path: kIntroductionView,

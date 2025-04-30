@@ -4,7 +4,7 @@ class IntroCubit extends Cubit<int> {
   IntroCubit() : super(0);
 
   void nextStep() {
-    if (state < 3) emit(state + 1);
+    if (state < 2) emit(state + 1);
   }
 
   void previousStep() {

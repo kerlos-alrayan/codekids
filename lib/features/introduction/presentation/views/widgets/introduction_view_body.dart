@@ -1,10 +1,11 @@
-import 'package:codekids/core/utils/app_router.dart';
+import 'package:codekids/features/introduction/presentation/views/widgets/birthday_page.dart';
 import 'package:codekids/features/introduction/presentation/views/widgets/continue_button.dart';
 import 'package:codekids/features/introduction/presentation/views/widgets/intro_page.dart';
+import 'package:codekids/features/introduction/presentation/views/widgets/name_and_gender_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import '../../manger/introduction_cubit/introduction_cubit.dart';
+import '../../manger/switch_page_cubit/switch_page_cubit.dart';
+
 
 class IntroductionViewBody extends StatelessWidget {
   const IntroductionViewBody({super.key});
@@ -26,6 +27,8 @@ class IntroductionViewBody extends StatelessWidget {
                       index: state,
                       children: const [
                         IntroPage(),
+                        NameAndGenderPage(),
+                        //BirthdayPage(),
                       ],
                     ),
                     ContinueButton(

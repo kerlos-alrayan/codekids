@@ -28,7 +28,7 @@ class IntroPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 40),
           child:  Text(
             textAlign: TextAlign.center,
-            'Let’s make Code Kids special for you!Tell us a little about yourself to start learning and having fun!',
+            'Let’s make CodeKids special for you!Tell us a little about yourself to start learning and having fun!',
             style: Styles.textStyle14.copyWith(height: 2),
           ),
         ),

@@ -42,6 +42,11 @@ dependencies:
   animated_splash_screen: ^1.3.0
   flutter_launcher_icons: ^0.14.3
   flutter_bloc: ^9.1.0
+  intl: ^0.20.2
+  cached_network_image: ^3.4.1
+  shimmer: ^3.0.0
+  carousel_slider: ^5.0.0
+  persistent_bottom_nav_bar: ^6.2.1
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +78,10 @@ flutter:
     -  assets/videos/splash.mp4
     - assets/images/splash/intro/
     - assets/animations/splash/animation_logo.json
+    - assets/images/gender/
+    - assets/images/home_view/programming_language/dart.png
+    - assets/images/home_view/bottom_nav_bar/
+    - assets/images/home_view/course_card/
 
     # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

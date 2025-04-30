@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/app_router.dart';
-import '../../manger/introduction_cubit/introduction_cubit.dart';
+import '../../manger/switch_page_cubit/switch_page_cubit.dart';
 
 class ContinueButton extends StatelessWidget {
   final int state;
@@ -27,7 +27,7 @@ class ContinueButton extends StatelessWidget {
             shadowColor: Colors.deepPurpleAccent.withOpacity(0.6),
           ),
           onPressed: () {
-            if (state == 3) {
+            if (state == 1) {
               GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
             } else {
               context.read<IntroCubit>().nextStep();
@@ -42,8 +42,8 @@ class ContinueButton extends StatelessWidget {
             ),
             child: Container(
               alignment: Alignment.center,
-              child: const Text(
-                'Continue',
+              child: Text(
+                state == 1 ?'Finish' :'Continue',
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
