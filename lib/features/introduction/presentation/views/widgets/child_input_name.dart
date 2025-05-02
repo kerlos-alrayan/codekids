@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/styles.dart';
 
 class ChildInputName extends StatelessWidget {
@@ -10,10 +12,13 @@ class ChildInputName extends StatelessWidget {
     return Column(
       spacing: 20,
       children: [
-        const Text(
-          'What is your Name?',
-          style: Styles.textStyle18,
-        ),
+         GestureDetector(
+           onTap: () => GoRouter.of(context).push(AppRouter.kSignUpSteps),
+           child: Text(
+            'Or you are a teacher?🤔',
+            style: Styles.textStyle18.copyWith(color: Colors.purple),
+                   ),
+         ),
         TextField(
           decoration: InputDecoration(
               hintText: 'Your Name',

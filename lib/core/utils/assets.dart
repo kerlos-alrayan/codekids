@@ -5,5 +5,7 @@ class AssetsData{
   static const gamesBottomBar = 'assets/images/home_view/bottom_nav_bar/games.png';
   static const videosBottomBar = 'assets/images/home_view/bottom_nav_bar/videos.png';
   static const accountBottomBar = 'assets/images/home_view/bottom_nav_bar/account.png';
-  static const course_card = 'assets/images/home_view/course_card/g10.png';
+  static const courseCard = 'assets/images/home_view/course_card/g10.png';
+  static const notification = 'assets/images/notification/notifications.png';
+  static const gamesSorting = 'assets/images/games/sorting.png';
 }

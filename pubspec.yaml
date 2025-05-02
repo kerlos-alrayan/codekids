@@ -47,6 +47,7 @@ dependencies:
   shimmer: ^3.0.0
   carousel_slider: ^5.0.0
   persistent_bottom_nav_bar: ^6.2.1
+  story_view: ^0.16.5
 
 dev_dependencies:
   flutter_test:
@@ -82,6 +83,8 @@ flutter:
     - assets/images/home_view/programming_language/dart.png
     - assets/images/home_view/bottom_nav_bar/
     - assets/images/home_view/course_card/
+    - assets/images/notification/notifications.png
+    - assets/images/games/
 
     # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

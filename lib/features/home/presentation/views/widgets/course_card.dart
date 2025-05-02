@@ -72,7 +72,7 @@ class CourseCard extends StatelessWidget {
                     bottom: 0,
                     right: 0,
                     child: Image.asset(
-                      AssetsData.course_card,
+                      AssetsData.courseCard,
                       width: 200,
                     ),
                   )

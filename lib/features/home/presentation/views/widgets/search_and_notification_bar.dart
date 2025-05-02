@@ -1,5 +1,7 @@
+import 'package:codekids/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class SearchAndNotificationBar extends StatelessWidget {
   const SearchAndNotificationBar({super.key});
@@ -42,18 +44,6 @@ class SearchAndNotificationBar extends StatelessWidget {
                     Icons.search_outlined,
                     color: Color(0xffB7B7B7),
                   ),
-                  suffixIcon: Icon(
-                    Icons.arrow_drop_down_outlined,
-                    size: 35,
-                    color: Color(0xffB7B7B7),
-                  ),
-                  suffixText: 'All',
-                  suffixStyle: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 16,
-                    fontFamily: 'Poppins',
-                    color: Color(0xffB7B7B7),
-                  ),
                   hintText: 'Search',
                   hintStyle: TextStyle(
                     fontWeight: FontWeight.w400,
@@ -72,7 +62,9 @@ class SearchAndNotificationBar extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                GoRouter.of(context).push(AppRouter.kNotifications);
+              },
               icon: Icon(
                 FontAwesomeIcons.bell,
                 color: Colors.white,

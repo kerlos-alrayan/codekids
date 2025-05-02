@@ -28,7 +28,7 @@ class ContinueButton extends StatelessWidget {
           ),
           onPressed: () {
             if (state == 1) {
-              GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
+              GoRouter.of(context).pushReplacement(AppRouter.kBottomNavBar);
             } else {
               context.read<IntroCubit>().nextStep();
             }
