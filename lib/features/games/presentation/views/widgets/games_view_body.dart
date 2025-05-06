@@ -1,5 +1,5 @@
-import 'package:codekids/core/utils/assets.dart';
 import 'package:codekids/core/utils/styles.dart';
+import 'package:codekids/features/games/presentation/views/widgets/custom_games_list_view.dart';
 import 'package:flutter/material.dart';
 
 class GamesViewBody extends StatelessWidget {
@@ -7,63 +7,40 @@ class GamesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(
-          'Games',
-          style: Styles.textStyle30,
+    return SafeArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const SizedBox(
+          height: 16,
         ),
-        const SizedBox(
-          height: 32,
-        ),
-        Expanded(child: CustomGamesListView()),
-      ],
+          Text(
+            'Games',
+            style: Styles.textStyle30.copyWith(
+              color: const Color(0xff211B46),
+              fontWeight: FontWeight.bold,
+              shadows: [
+                Shadow(
+                  offset: Offset(2, 2),
+                  blurRadius: 2,
+                  color: Colors.black26,
+                ),
+                Shadow(
+                  offset: Offset(4, 4),
+                  blurRadius: 4,
+                  color: Color(0xffbbdefbff),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 24,
+          ),
+          Expanded(child: CustomGamesListView()),
+        ],
+      ),
     );
   }
 }
 
-class CustomGamesListView extends StatelessWidget {
-  const CustomGamesListView({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 3,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      itemBuilder: (context, index) {
-        return Container(
-          margin: const EdgeInsets.only(bottom: 16),
-          width: double.infinity,
-          height: 200,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            image: DecorationImage(
-              image: AssetImage(AssetsData.gamesSorting),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: GestureDetector(
-              onTap: () {},
-              child: Container(
-                margin: const EdgeInsets.only(bottom: 16),
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                decoration: BoxDecoration(
-                  color: Colors.black54,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Text(
-                  'Start Game',
-                  style: Styles.textStyle16.copyWith(color: Colors.white),
-                ),
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-}

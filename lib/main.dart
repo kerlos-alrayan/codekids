@@ -1,14 +1,17 @@
 import 'package:codekids/constants.dart';
 import 'package:codekids/core/utils/app_router.dart';
 import 'package:codekids/features/home/presentation/manger/bottom_nav_bar/bottom_nav_bar_cubit.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'features/auth/presentation/manger/sign_up_steps_cubit/sign_up_steps_cubit.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
