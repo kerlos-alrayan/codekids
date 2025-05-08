@@ -5,6 +5,7 @@ import 'package:codekids/features/home/presentation/views/widgets/language_categ
 import 'package:codekids/features/home/presentation/views/widgets/search_and_notification_bar.dart';
 import 'package:flutter/material.dart';
 
+
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 

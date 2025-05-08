@@ -1,4 +1,5 @@
 import 'package:codekids/core/utils/assets.dart';
+import 'package:codekids/features/courses/presentation/views/courses_view.dart';
 import 'package:codekids/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +17,7 @@ class BottomNavBar extends StatelessWidget {
   final List<Widget> screens = [
     HomeView(),
     GamesView(),
-    HomeView(),
+    CoursesView(),
     HomeView(),
   ];
 
