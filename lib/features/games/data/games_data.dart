@@ -16,7 +16,7 @@ final List<GameModel> games = [
     route: AppRouter.kSortingGame,
   ),
   GameModel(
-    title: 'Scratch Game',
+    title: 'Help The Robot',
     image: AssetsData.gamesScratch,
     bgImage: 'assets/images/bg_scratch.png',
     infoIcon: [
@@ -24,7 +24,7 @@ final List<GameModel> games = [
       AssetsData.gamesSortingLottie2,
       'Explore coding using colorful Scratch blocks!',
     ],
-    route: AppRouter.kSortingGame,
+    route: AppRouter.kHelpRobotGame,
   ),
   GameModel(
     title: 'Demo Game',

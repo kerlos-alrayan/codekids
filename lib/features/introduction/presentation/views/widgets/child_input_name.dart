@@ -13,7 +13,7 @@ class ChildInputName extends StatelessWidget {
       spacing: 20,
       children: [
          GestureDetector(
-           onTap: () => GoRouter.of(context).push(AppRouter.kSignUpSteps),
+           onTap: () => GoRouter.of(context).push(AppRouter.kSignInView),
            child: Text(
             'Or you are a teacher?🤔',
             style: Styles.textStyle18.copyWith(color: Colors.purple),

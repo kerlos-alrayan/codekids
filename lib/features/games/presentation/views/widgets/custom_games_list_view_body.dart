@@ -35,7 +35,7 @@ class GamesListViewBody extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 child: GestureDetector(
                   onTap: () {
-                    GoRouter.of(context).push(AppRouter.kSortingGame);
+                    GoRouter.of(context).push(game.route);
                   },
                   child: Container(
                     margin: const EdgeInsets.only(bottom: 16),
