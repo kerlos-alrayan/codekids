@@ -9,9 +9,9 @@ class CourseCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: SizedBox(
-        height: 180 * 3, // 3 عناصر وكل واحد حوالي 170 + margin بسيط
+        height: 180 * 3,
         child: ListView.builder(
-          physics: const NeverScrollableScrollPhysics(), // لو مش عايز Scroll
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: 3,
           itemBuilder: (BuildContext context, int index) {
             return Container(

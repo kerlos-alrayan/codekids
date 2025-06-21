@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 import '../../../games/presentation/views/games_view.dart';
+import '../../../profile/presentation/views/profile_view.dart';
 import '../manger/bottom_nav_bar/bottom_nav_bar_cubit.dart';
 
 
@@ -18,7 +19,7 @@ class BottomNavBar extends StatelessWidget {
     HomeView(),
     GamesView(),
     CoursesView(),
-    HomeView(),
+    ProfileView(),
   ];
 
   final List<PersistentBottomNavBarItem> navBarItems = [

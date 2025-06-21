@@ -13,10 +13,10 @@ class CustomCarouselSlider extends StatelessWidget {
         autoPlay: true,
         autoPlayInterval: Duration(seconds: 5),
         enableInfiniteScroll: true,
-        viewportFraction: 0.7, // تقلل العرض عشان يبان الفاصل
-        padEnds: false, // عشان يبدأ من أول عنصر مش في النص
+        viewportFraction: 0.7,
+        padEnds: false,
         scrollDirection: Axis.horizontal,
-        reverse: false, // من اليمين لليسار
+        reverse: false,
       ),
       itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) {
         return Padding(

@@ -13,7 +13,7 @@ class CustomGamesListView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       itemBuilder: (context, index) {
         final game = games[index];
-        return GamesListViewBody(game: game); // مرر الداتا هنا
+        return GamesListViewBody(game: game);
       },
     );
   }

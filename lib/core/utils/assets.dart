@@ -11,7 +11,7 @@ class AssetsData{
   static const gamesSortingBG = 'assets/images/games/sorting_bg.png';
   static const gamesSortingLottie1 = 'assets/animations/games/sorting/Animation - 1740417927878.json';
   static const gamesSortingLottie2 = 'assets/animations/games/sorting/Animation - 1740418003805.json';
-  static const gamesScratch = 'assets/images/games/scratch.png';
+  static const gamesScratch = 'assets/images/games/help_robot/help the robot.jpg';
   static const gamesScratchBG = 'assets/images/games/sorting_bg.png';
   static const gamesDemo= 'assets/images/games/demo.png';
   static const gamesDemoBG = 'assets/images/games/sorting_bg.png';

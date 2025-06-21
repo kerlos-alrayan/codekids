@@ -1,9 +1,4 @@
 import 'package:codekids/core/utils/assets.dart';
-import 'package:codekids/core/utils/styles.dart';
-import 'package:codekids/features/home/presentation/views/widgets/course_card.dart';
-import 'package:codekids/features/home/presentation/views/widgets/custom_carousel_slider.dart';
-import 'package:codekids/features/home/presentation/views/widgets/language_categories.dart';
-import 'package:codekids/features/home/presentation/views/widgets/search_and_notification_bar.dart';
 import 'package:flutter/material.dart';
 
 class NotificationViewBody extends StatelessWidget {

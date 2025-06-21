@@ -149,8 +149,8 @@ class SortingGameState extends State<SortingGame> {
                       padding: const EdgeInsets.only(top: 16),
                       child: Text(
                         'Arrange the code correctly?',
-                        style: Styles.textStyle20
-                            .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
+                        style: Styles.textStyle20.copyWith(
+                            fontWeight: FontWeight.bold, color: Colors.white),
                       ),
                     ),
                     Expanded(
@@ -159,20 +159,20 @@ class SortingGameState extends State<SortingGame> {
                           DragAndDropList(
                             children: scrambledCode
                                 .map((line) => DragAndDropItem(
-                              child: Card(
-                                color: Colors.lightBlueAccent,
-                                child: Padding(
-                                  padding: EdgeInsets.all(10),
-                                  child: Text(
-                                    line,
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        color: Colors.white),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                              ),
-                            ))
+                                      child: Card(
+                                        color: Colors.lightBlueAccent,
+                                        child: Padding(
+                                          padding: EdgeInsets.all(10),
+                                          child: Text(
+                                            line,
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: Colors.white),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                      ),
+                                    ))
                                 .toList(),
                           ),
                         ],

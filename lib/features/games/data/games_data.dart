@@ -27,13 +27,13 @@ final List<GameModel> games = [
     route: AppRouter.kHelpRobotGame,
   ),
   GameModel(
-    title: 'Demo Game',
+    title: 'Debug the Code',
     image: AssetsData.gamesDemo,
     bgImage: 'assets/images/bg_scratch.png',
     infoIcon: [
       AssetsData.gamesSortingLottie1,
       AssetsData.gamesSortingLottie2,
-      'Demo game',
+      'Debug the Code',
     ],
     route: AppRouter.kSortingGame,
   ),

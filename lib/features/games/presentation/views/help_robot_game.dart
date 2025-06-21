@@ -85,18 +85,18 @@ class _HelpRobotGameState extends State<HelpRobotGame> {
               ),
             ),
           ),
-
           const SizedBox(height: 40),
           ControlPanel(
             onExecuteCommand: (command) async {
               await controller.executeCommand(
                 command,
-                    () => setState(() {}),
-                    (msg) => _showMessageDialog("Oops!", msg),
+                () => setState(() {}),
+                (msg) => _showMessageDialog("Oops!", msg),
               );
 
               if (controller.robotX == 3 && controller.robotY == 3) {
-                GoRouter.of(context).push(AppRouter.kWinScreen, extra: widget.level + 1);
+                GoRouter.of(context)
+                    .push(AppRouter.kWinScreen, extra: widget.level + 1);
               }
             },
           ),
