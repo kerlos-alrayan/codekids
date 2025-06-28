@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:codekids/core/utils/app_router.dart';
 import 'package:codekids/core/utils/assets.dart';
 import 'package:codekids/features/introduction/data/models/auth_viewmodel.dart';
@@ -26,13 +27,15 @@ class ProfileViewBody extends StatelessWidget {
     final auth = Provider.of<AuthViewModel>(context);
     final String name = auth.name ?? "Child";
     final String gender = auth.gender ?? "Boy";
+    final sortingGameLevel = auth.levels['sortingGame'] ?? 1;
+    final int helpRobotLevel = auth.levels['helpRobotGame'] ?? 1;
+
 
     final String avatarAsset =
         gender == "Girl" ? AssetsData.girl : AssetsData.boy;
-    final String avatarLottie =
-        gender == "Girl" ? 'assets/images/profile/lottie_girle.json'
+    final String avatarLottie = gender == "Girl"
+        ? 'assets/images/profile/lottie_girle.json'
         : 'assets/images/profile/Animation - 1750519452057.json';
-
 
     return Scaffold(
       backgroundColor: const Color(0xFFF6F9FF),
@@ -68,7 +71,6 @@ class ProfileViewBody extends StatelessWidget {
                     ),
                   ),
                 ),
-
               ],
             ),
             const SizedBox(height: 65),
@@ -95,69 +97,28 @@ class ProfileViewBody extends StatelessWidget {
 
             const SizedBox(height: 40),
 
-            // 🎯 Level
+            // 🪙 sortingGame
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               decoration: BoxDecoration(
                 color: const Color(0xFF8E52DC),
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CircleAvatar(
-                    radius: 24,
-                    backgroundImage: AssetImage(avatarAsset),
-                  ),
-                  const SizedBox(width: 12),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        'level',
-                        style: TextStyle(
-                          color: Colors.orange,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                      SizedBox(height: 4),
-                      Text(
-                        '20 Questions',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const Spacer(),
-                  Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      SizedBox(
-                        height: 40,
-                        width: 40,
-                        child: CircularProgressIndicator(
-                          value: 0.4,
-                          strokeWidth: 4,
-                          backgroundColor: Colors.white24,
-                          valueColor:
-                              AlwaysStoppedAnimation<Color>(Colors.orange),
-                        ),
-                      ),
-                      const Text(
-                        '40%',
-                        style: TextStyle(
-                            color: Colors.orange, fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                  Text(
+                    '🤖 Help the Robot: $helpRobotLevel',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.orange),
                   ),
                 ],
               ),
             ),
 
-            // 🪙 Coins
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -167,47 +128,14 @@ class ProfileViewBody extends StatelessWidget {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text(
-                    'coins',
+                    '🪙 Sorting Game Level: $sortingGameLevel',
                     style: TextStyle(
-                      color: Colors.orange,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.orange),
                   ),
-                  Text(
-                    '119',
-                    style: TextStyle(
-                      color: Colors.orange,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            // 📚 Courses
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              decoration: BoxDecoration(
-                color: const Color(0xFF8E52DC),
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
-                    'courses',
-                    style: TextStyle(
-                      color: Colors.orange,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
-                  Icon(Icons.arrow_forward_ios, color: Colors.white),
                 ],
               ),
             ),

@@ -90,7 +90,10 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kWinScreen,
-        builder: (context, state) => WinScreen(nextLevel: 2),
+        builder: (context, state) {
+          final finishedLevel = state.extra as int? ?? 1;
+          return WinScreen(finishedLevel: finishedLevel);
+        },
       ),
     ],
   );

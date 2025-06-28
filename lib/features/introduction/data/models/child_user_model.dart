@@ -4,6 +4,7 @@ class ChildUserModel {
   final String gender;
   final DateTime birthDate;
   final String loginCode;
+  final Map<String, int> levels;
 
   ChildUserModel({
     required this.uid,
@@ -11,6 +12,7 @@ class ChildUserModel {
     required this.gender,
     required this.birthDate,
     required this.loginCode,
+    required this.levels,
   });
 
   Map<String, dynamic> toMap() {
@@ -20,6 +22,7 @@ class ChildUserModel {
       'gender': gender,
       'birthDate': birthDate.toIso8601String(),
       'loginCode': loginCode,
+      'levels': levels,
     };
   }
 
@@ -30,6 +33,7 @@ class ChildUserModel {
       gender: json['gender'],
       birthDate: DateTime.parse(json['birthDate']),
       loginCode: json['loginCode'],
+      levels: Map<String, int>.from(json['levels'] ?? {}),
     );
   }
 }

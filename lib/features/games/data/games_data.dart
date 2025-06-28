@@ -18,7 +18,7 @@ final List<GameModel> games = [
   GameModel(
     title: 'Help The Robot',
     image: AssetsData.gamesScratch,
-    bgImage: 'assets/images/bg_scratch.png',
+    bgImage: 'assets/images/games/help_robot/help_the_robot_bg.png',
     infoIcon: [
       AssetsData.gamesSortingLottie1,
       AssetsData.gamesSortingLottie2,

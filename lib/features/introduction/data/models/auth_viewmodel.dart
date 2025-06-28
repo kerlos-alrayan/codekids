@@ -9,11 +9,12 @@ class AuthViewModel extends ChangeNotifier {
   String _gender = '';
   DateTime? _birthDate;
   String _loginCode = '';
-
   String get name => _name;
   String get gender => _gender;
   DateTime? get birthDate => _birthDate;
   String get loginCode => _loginCode;
+  Map<String, int> _levels = {};
+  Map<String, int> get levels => _levels;
 
   bool _isInitialized = false;
   bool get isInitialized => _isInitialized;
@@ -27,6 +28,11 @@ class AuthViewModel extends ChangeNotifier {
     _gender = prefs.getString('gender') ?? '';
     _loginCode = prefs.getString('loginCode') ?? '';
     final birthDateStr = prefs.getString('birthDate');
+    final levelsString = prefs.getString('levels');
+    if (levelsString != null) {
+      _levels = _decodeLevels(levelsString);
+    }
+
 
     if (birthDateStr != null) {
       _birthDate = DateTime.tryParse(birthDateStr);
@@ -62,11 +68,30 @@ class AuthViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  String _encodeLevels(Map<String, int> levels) {
+    return levels.entries.map((e) => '${e.key}:${e.value}').join(',');
+  }
+
+  Map<String, int> _decodeLevels(String encoded) {
+    final Map<String, int> map = {};
+    if (encoded.isEmpty) return map;
+
+    for (var pair in encoded.split(',')) {
+      final parts = pair.split(':');
+      if (parts.length == 2) {
+        map[parts[0]] = int.tryParse(parts[1]) ?? 0;
+      }
+    }
+
+    return map;
+  }
+
   void setLoginCode(String value) {
     _loginCode = value;
     _saveToPrefs('loginCode', value);
     notifyListeners();
   }
+
   Future<bool> signInWithCode(BuildContext context, String code) async {
     try {
       final firestore = FirestoreService();
@@ -84,11 +109,12 @@ class AuthViewModel extends ChangeNotifier {
         return false;
       }
 
-      // ✅ خزّن البيانات
       setName(child.name);
       setGender(child.gender);
       setBirthDate(child.birthDate);
       setLoginCode(child.loginCode);
+      _levels = child.levels;
+
 
       return true;
     } catch (e) {
@@ -100,6 +126,33 @@ class AuthViewModel extends ChangeNotifier {
       );
       return false;
     }
+  }
+
+  Future<void> updateGameLevel(String gameId, int level) async {
+    final firestore = FirestoreService();
+
+    final child = await firestore.getChildByCode(_loginCode);
+    if (child == null) return;
+
+    final updatedLevels = Map<String, int>.from(child.levels);
+    updatedLevels[gameId] = level;
+
+    final updatedChild = ChildUserModel(
+      uid: child.uid,
+      name: child.name,
+      gender: child.gender,
+      birthDate: child.birthDate,
+      loginCode: child.loginCode,
+      levels: updatedLevels,
+    );
+
+    await firestore.saveChildData(updatedChild);
+
+    _levels[gameId] = level;
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString('levels', _encodeLevels(child.levels));
+
+    notifyListeners(); // 🔁 علشان تحدث الـ UI
   }
 
 
@@ -159,6 +212,7 @@ class AuthViewModel extends ChangeNotifier {
         gender: _gender,
         birthDate: _birthDate!,
         loginCode: _loginCode,
+        levels: {},
       );
 
       await firestoreService.saveChildData(child);
@@ -198,6 +252,7 @@ class AuthViewModel extends ChangeNotifier {
     _loginCode = '';
     isFirstTime = true;
     notifyListeners();
-  }
+    _levels = {};
 
+  }
 }

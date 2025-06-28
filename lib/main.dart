@@ -19,6 +19,7 @@ void main() async {
   final authViewModel = AuthViewModel();
   await authViewModel.init();
 
+
   runApp(
     MultiProvider(
       providers: [

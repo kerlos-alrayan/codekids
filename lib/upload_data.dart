@@ -127,3 +127,118 @@
 //
 //   print("✅ Initial Firestore structure created successfully.");
 // }
+// void uploadRobotLevels() async {
+//   final levels = [
+//     {
+//       "level": 1,
+//       "robotX": 0,
+//       "robotY": 0,
+//       "obstacles": [],
+//       "goal": {"x": 3, "y": 3}
+//     },
+//     {
+//       "level": 2,
+//       "robotX": 0,
+//       "robotY": 0,
+//       "obstacles": [
+//         {"x": 1, "y": 1}
+//       ],
+//       "goal": {"x": 3, "y": 3}
+//     },
+//     {
+//       "level": 3,
+//       "robotX": 0,
+//       "robotY": 0,
+//       "obstacles": [
+//         {"x": 1, "y": 0},
+//         {"x": 2, "y": 2}
+//       ],
+//       "goal": {"x": 3, "y": 3}
+//     },
+//     {
+//       "level": 4,
+//       "robotX": 0,
+//       "robotY": 0,
+//       "obstacles": [
+//         {"x": 0, "y": 1},
+//         {"x": 1, "y": 1},
+//         {"x": 2, "y": 1}
+//       ],
+//       "goal": {"x": 3, "y": 3}
+//     },
+//     {
+//       "level": 5,
+//       "robotX": 0,
+//       "robotY": 0,
+//       "obstacles": [
+//         {"x": 1, "y": 2},
+//         {"x": 2, "y": 2},
+//         {"x": 3, "y": 2}
+//       ],
+//       "goal": {"x": 3, "y": 3}
+//     },
+//     {
+//       "level": 6,
+//       "robotX": 1,
+//       "robotY": 1,
+//       "obstacles": [
+//         {"x": 1, "y": 2},
+//         {"x": 2, "y": 2}
+//       ],
+//       "goal": {"x": 3, "y": 3}
+//     },
+//     {
+//       "level": 7,
+//       "robotX": 0,
+//       "robotY": 3,
+//       "obstacles": [
+//         {"x": 1, "y": 3},
+//         {"x": 2, "y": 3},
+//         {"x": 3, "y": 2}
+//       ],
+//       "goal": {"x": 3, "y": 3}
+//     },
+//     {
+//       "level": 8,
+//       "robotX": 2,
+//       "robotY": 0,
+//       "obstacles": [
+//         {"x": 2, "y": 1},
+//         {"x": 1, "y": 2},
+//         {"x": 0, "y": 2}
+//       ],
+//       "goal": {"x": 3, "y": 3}
+//     },
+//     {
+//       "level": 9,
+//       "robotX": 0,
+//       "robotY": 0,
+//       "obstacles": [
+//         {"x": 0, "y": 1},
+//         {"x": 1, "y": 1},
+//         {"x": 2, "y": 1},
+//         {"x": 3, "y": 1}
+//       ],
+//       "goal": {"x": 3, "y": 3}
+//     },
+//     {
+//       "level": 10,
+//       "robotX": 0,
+//       "robotY": 0,
+//       "obstacles": [
+//         {"x": 1, "y": 0},
+//         {"x": 1, "y": 1},
+//         {"x": 1, "y": 2},
+//         {"x": 2, "y": 2},
+//         {"x": 3, "y": 2}
+//       ],
+//       "goal": {"x": 3, "y": 3}
+//     },
+//   ];
+//
+//   for (final level in levels) {
+//     await FirebaseFirestore.instance.collection('robot_levels').add(level);
+//   }
+//
+//   print("✅ Robot levels uploaded successfully!");
+// }

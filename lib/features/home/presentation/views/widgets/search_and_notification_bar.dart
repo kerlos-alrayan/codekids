@@ -51,16 +51,6 @@ class SearchAndNotificationBar extends StatelessWidget {
               displayName,
               style: Styles.textStyle16.copyWith(color: Colors.white),
             ),
-            const Spacer(),
-            IconButton(
-              onPressed: () {
-                GoRouter.of(context).push(AppRouter.kNotifications);
-              },
-              icon: const Icon(
-                FontAwesomeIcons.bell,
-                color: Colors.white,
-              ),
-            ),
           ],
         ),
       ),

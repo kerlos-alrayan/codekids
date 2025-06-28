@@ -1,22 +1,22 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class GameController {
   int robotX = 0;
   int robotY = 0;
+  int goalX = 3;
+  int goalY = 3;
 
-  // نلغي final علشان نقدر نغيرها حسب المستوى
-  List<List<int>> obstacles = [
-    [1, 0],
-    [2, 2],
-  ];
+  List<List<int>> obstacles = [];
 
   bool isObstacle(int x, int y) {
     return obstacles.any((pos) => pos[0] == x && pos[1] == y);
   }
 
   Future<void> executeCommand(
-    String command,
-    Function updateUI,
-    Function(String) showAlert,
-  ) async {
+      String command,
+      Function updateUI,
+      Function(String) showAlert,
+      ) async {
     int newX = robotX;
     int newY = robotY;
 
@@ -40,32 +40,58 @@ class GameController {
     updateUI();
   }
 
-  void setLevel(int level) {
-    robotX = 0;
-    robotY = 0;
+  Future<void> setLevel(int level) async {
+    try {
+      final snapshot = await FirebaseFirestore.instance
+          .collection('robot_levels')
+          .where('level', isEqualTo: level)
+          .limit(1)
+          .get();
 
-    // تختلف العقبات حسب المستوى
-    if (level == 1) {
-      obstacles = [
-        [1, 0],
-        [2, 2],
-      ];
-    } else if (level == 2) {
-      obstacles = [
-        [0, 1],
-        [1, 2],
-        [3, 1],
-      ];
-    } else if (level == 3) {
-      obstacles = [
-        [1, 1],
-        [2, 0],
-        [2, 2],
-        [3, 1],
-      ];
-    } else {
+      if (snapshot.docs.isNotEmpty) {
+        final data = snapshot.docs.first.data();
+
+        robotX = data['robotX'] ?? 0;
+        robotY = data['robotY'] ?? 0;
+
+        final goal = List<int>.from(data['goal'] ?? [3, 3]);
+        goalX = goal[0];
+        goalY = goal[1];
+
+        final rawObstacles = data['obstacles'] ?? [];
+        obstacles = List<List<int>>.from(
+          rawObstacles.map((e) => List<int>.from(e)),
+        );
+      } else {
+        robotX = 0;
+        robotY = 0;
+        goalX = 3;
+        goalY = 3;
+        obstacles = [];
+      }
+    } catch (e) {
+      print("Error loading level: $e");
+      robotX = 0;
+      robotY = 0;
+      goalX = 3;
+      goalY = 3;
       obstacles = [];
     }
+  }
+
+  // ✅ هنا الميثود المطلوبة
+  void setFromData({
+    required int startX,
+    required int startY,
+    required int goalX,
+    required int goalY,
+    required List<List<int>> obstacles,
+  }) {
+    robotX = startX;
+    robotY = startY;
+    this.goalX = goalX;
+    this.goalY = goalY;
+    this.obstacles = obstacles;
   }
 
   void reset() {

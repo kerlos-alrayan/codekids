@@ -39,6 +39,16 @@ class ControlPanel extends StatelessWidget {
             _buildButton('⬇️', 'Down', 'down'),
           ],
         ),
+
+        // إذا حبيت تضيف أوامر إضافية مستقبلاً، ممكن تعمل Row جديد هنا
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     _buildButton('🔄', 'Reset', 'reset'),
+        //     const SizedBox(width: 16),
+        //     _buildButton('🎙️', 'Speak', 'speak'),
+        //   ],
+        // ),
       ],
     );
   }
