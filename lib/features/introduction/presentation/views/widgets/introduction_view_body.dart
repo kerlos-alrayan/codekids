@@ -1,11 +1,10 @@
-import 'package:codekids/features/introduction/presentation/views/widgets/birthday_page.dart';
 import 'package:codekids/features/introduction/presentation/views/widgets/continue_button.dart';
 import 'package:codekids/features/introduction/presentation/views/widgets/intro_page.dart';
+import 'package:codekids/features/introduction/presentation/views/widgets/login_code_setup_page.dart';
 import 'package:codekids/features/introduction/presentation/views/widgets/name_and_gender_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../manger/switch_page_cubit/switch_page_cubit.dart';
-
 
 class IntroductionViewBody extends StatelessWidget {
   const IntroductionViewBody({super.key});
@@ -16,28 +15,39 @@ class IntroductionViewBody extends StatelessWidget {
       create: (_) => IntroCubit(),
       child: Scaffold(
         body: SafeArea(
-          child: BlocBuilder<IntroCubit, int>(
-            builder: (context, state) {
-              return Padding(
-                padding: const EdgeInsets.all(22),
-                child: ListView(
-                  physics: const BouncingScrollPhysics(),
-                  children: [
-                    IndexedStack(
-                      index: state,
-                      children: const [
-                        IntroPage(),
-                        NameAndGenderPage(),
-                        //BirthdayPage(),
-                      ],
-                    ),
-                    ContinueButton(
-                      state: state,
-                    ),
-                  ],
-                ),
-              );
-            },
+          child: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xFFB3E5FC), Color(0xFFE1BEE7)],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
+            child: BlocBuilder<IntroCubit, int>(
+              builder: (context, state) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 10),
+                      Expanded(
+                        child: IndexedStack(
+                          index: state,
+                          children: [
+                            NameAndGenderPage(),
+                            LoginCodeSetupPage(),
+                            // BirthdayPage(),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      ContinueButton(state: state),
+                      const SizedBox(height: 20),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
         ),
       ),

@@ -15,4 +15,7 @@ class AssetsData{
   static const gamesScratchBG = 'assets/images/games/sorting_bg.png';
   static const gamesDemo= 'assets/images/games/demo.png';
   static const gamesDemoBG = 'assets/images/games/sorting_bg.png';
+  static const boy = 'assets/images/gender/boy.png';
+  static const girl = 'assets/images/gender/girl.png';
+  static const appLogo = 'assets/images/app_icon/icon_app.png';
 }
