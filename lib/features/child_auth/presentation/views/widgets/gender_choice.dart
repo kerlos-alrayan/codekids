@@ -1,4 +1,4 @@
-import 'package:codekids/features/introduction/presentation/views/widgets/custom_gender_container.dart';
+import 'package:codekids/features/child_auth/presentation/views/widgets/custom_gender_container.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

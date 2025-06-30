@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'package:drag_and_drop_lists/drag_and_drop_lists.dart';
 
-import '../../../introduction/data/models/auth_viewmodel.dart';
+import '../../../child_auth/data/models/auth_viewmodel.dart';
 
 class SortingGame extends StatefulWidget {
   const SortingGame({super.key});

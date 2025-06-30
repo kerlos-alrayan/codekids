@@ -8,7 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/utils/app_router.dart';
-import '../../../introduction/data/models/auth_viewmodel.dart';
+import '../../../child_auth/data/models/auth_viewmodel.dart';
 
 class HelpRobotGame extends StatefulWidget {
   final int level;

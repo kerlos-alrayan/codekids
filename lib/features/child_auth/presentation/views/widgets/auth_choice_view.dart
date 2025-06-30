@@ -18,7 +18,8 @@ class AuthChoiceView extends StatelessWidget {
             colors: [Color(0xFFFDEBEB), Color(0xFFD0F0FF)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-          ),),
+          ),
+        ),
         child: SafeArea(
           child: SingleChildScrollView(
             child: Padding(
@@ -59,7 +60,6 @@ class AuthChoiceView extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 40),
-
                   _buildBigButton(
                     context,
                     emoji: '🧠',
@@ -67,11 +67,9 @@ class AuthChoiceView extends StatelessWidget {
                     subtitle: 'Start learning in a fun way!',
                     color: Colors.lightGreen.shade200,
                     onTap: () =>
-                        GoRouter.of(context).push(AppRouter.kIntroductionView),
+                        GoRouter.of(context).push(AppRouter.kChildAuthView),
                   ),
-
                   const SizedBox(height: 24),
-
                   _buildBigButton(
                     context,
                     emoji: '🔐',
@@ -90,15 +88,14 @@ class AuthChoiceView extends StatelessWidget {
     );
   }
 
-
   Widget _buildBigButton(
-      BuildContext context, {
-        required String emoji,
-        required String title,
-        required String subtitle,
-        required Color color,
-        required VoidCallback onTap,
-      }) {
+    BuildContext context, {
+    required String emoji,
+    required String title,
+    required String subtitle,
+    required Color color,
+    required VoidCallback onTap,
+  }) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: GestureDetector(

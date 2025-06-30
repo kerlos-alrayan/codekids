@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../introduction/data/models/auth_viewmodel.dart';
+import '../../../../child_auth/data/models/auth_viewmodel.dart';
 
 class SearchAndNotificationBar extends StatelessWidget {
   const SearchAndNotificationBar({super.key});

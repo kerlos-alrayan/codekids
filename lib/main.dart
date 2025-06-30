@@ -7,8 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import 'features/auth/presentation/manger/sign_up_steps_cubit/sign_up_steps_cubit.dart';
-import 'features/introduction/data/models/auth_viewmodel.dart';
+import 'features/child_auth/data/models/auth_viewmodel.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -39,7 +38,6 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => BottomNavBarCubit()),
-        BlocProvider(create: (context) => StepCubit()),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,

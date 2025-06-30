@@ -1,18 +1,17 @@
-import 'package:codekids/features/introduction/presentation/views/widgets/continue_button.dart';
-import 'package:codekids/features/introduction/presentation/views/widgets/intro_page.dart';
-import 'package:codekids/features/introduction/presentation/views/widgets/login_code_setup_page.dart';
-import 'package:codekids/features/introduction/presentation/views/widgets/name_and_gender_page.dart';
+import 'package:codekids/features/child_auth/presentation/views/widgets/continue_button.dart';
+import 'package:codekids/features/child_auth/presentation/views/widgets/login_code_setup_page.dart';
+import 'package:codekids/features/child_auth/presentation/views/widgets/name_and_gender_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../manger/switch_page_cubit/switch_page_cubit.dart';
 
-class IntroductionViewBody extends StatelessWidget {
-  const IntroductionViewBody({super.key});
+class ChildAuthViewBody extends StatelessWidget {
+  const ChildAuthViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => IntroCubit(),
+      create: (_) => SwitchPageCubit(),
       child: Scaffold(
         body: SafeArea(
           child: Container(
@@ -23,7 +22,7 @@ class IntroductionViewBody extends StatelessWidget {
                 end: Alignment.bottomRight,
               ),
             ),
-            child: BlocBuilder<IntroCubit, int>(
+            child: BlocBuilder<SwitchPageCubit, int>(
               builder: (context, state) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),

@@ -1,25 +1,23 @@
-import 'package:codekids/features/auth/presentation/views/sign_up_steps.dart';
 import 'package:codekids/features/home/presentation/views/bottom_nav_bar.dart';
-import 'package:codekids/features/introduction/presentation/views/widgets/auth_choice_view.dart';
+import 'package:codekids/features/child_auth/presentation/views/widgets/auth_choice_view.dart';
 import 'package:codekids/features/notification/presentation/views/notification_view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/widgets/auth_checker.dart';
-import '../../features/auth/presentation/views/widgets/sign_in_view.dart';
 import '../../features/games/presentation/views/quiz_game.dart';
 import '../../features/games/presentation/views/help_robot_game.dart';
 import '../../features/games/presentation/views/sorting_game.dart';
 import '../../features/games/presentation/views/widgets/win_screen.dart';
-import '../../features/introduction/presentation/views/introduction_view.dart';
-import '../../features/introduction/presentation/views/widgets/loginCode.dart';
-import '../../features/introduction/presentation/views/widgets/sign_in_view_kids.dart';
+import '../../features/child_auth/presentation/views/child_auth_view.dart';
+import '../../features/child_auth/presentation/views/widgets/loginCode.dart';
+import '../../features/child_auth/presentation/views/widgets/sign_in_view_kids.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 
 abstract class AppRouter {
   static const kSplashView = '/';
   static const kAuthChecker = '/auth-checker';
   static const  kAuthChoiceView = '/auth_choice_view';
-  static const kIntroductionView = '/IntroductionView';
+  static const kChildAuthView = '/ChildAuthView';
   static const kSignInViewKids = '/sign_in_view_kids';
   static const kLoginCodePage = '/loginCode';
   static const kSignUpSteps = '/SignUpSteps';
@@ -48,8 +46,8 @@ abstract class AppRouter {
       ),
 
       GoRoute(
-        path: kIntroductionView,
-        builder: (context, state) => const IntroductionView(),
+        path: kChildAuthView,
+        builder: (context, state) => const ChildAuthView(),
       ),
       GoRoute(
         path: kLoginCodePage,
@@ -58,15 +56,6 @@ abstract class AppRouter {
       GoRoute(
         path: kSignInViewKids,
         builder: (context, state) => SignInViewKids(),
-      ),
-
-      GoRoute(
-        path: kSignUpSteps,
-        builder: (context, state) => const SignUpSteps(totalSteps: 8),
-      ),
-      GoRoute(
-        path: kSignInView,
-        builder: (context, state) => SignInView(),
       ),
       GoRoute(
         path: kBottomNavBar,

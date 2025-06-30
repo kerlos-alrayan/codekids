@@ -49,7 +49,7 @@ class _ContinueButtonState extends State<ContinueButton> {
                 );
                 return;
               }
-              context.read<IntroCubit>().nextStep();
+              context.read<SwitchPageCubit>().nextStep();
             } else if (widget.state == 1) {
               // تحقق من كود الدخول
               if (auth.loginCode.isEmpty) {

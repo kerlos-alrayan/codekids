@@ -137,7 +137,7 @@ class _SignInViewKidsState extends State<SignInViewKids> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    GoRouter.of(context).push(AppRouter.kIntroductionView);
+                    GoRouter.of(context).push(AppRouter.kChildAuthView);
                   },
                   child: const Text(
                     "Create one!",

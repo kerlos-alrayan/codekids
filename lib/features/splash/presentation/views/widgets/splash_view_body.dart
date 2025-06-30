@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../introduction/data/models/auth_viewmodel.dart';
+import '../../../../child_auth/data/models/auth_viewmodel.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -22,7 +22,8 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   }
 
   void _navigate() async {
-    await Future.delayed(const Duration(milliseconds: 5640));
+    const int lottieDurationMs = 5203;
+    await Future.delayed(Duration(milliseconds: lottieDurationMs));
 
     final auth = Provider.of<AuthViewModel>(context, listen: false);
     final user = FirebaseAuth.instance.currentUser;

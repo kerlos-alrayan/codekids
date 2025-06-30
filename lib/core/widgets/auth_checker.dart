@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/utils/app_router.dart';
-import '../../features/introduction/data/models/auth_viewmodel.dart';
+import '../../features/child_auth/data/models/auth_viewmodel.dart';
 
 class AuthChecker extends StatelessWidget {
   const AuthChecker({super.key});
@@ -25,7 +25,7 @@ class AuthChecker extends StatelessWidget {
     if (firebaseUser != null && authViewModel.name.isNotEmpty) {
       Future.microtask(() => context.go(AppRouter.kBottomNavBar));
     } else {
-      Future.microtask(() => context.go(AppRouter.kIntroductionView));
+      Future.microtask(() => context.go(AppRouter.kChildAuthView));
     }
 
     // شاشة مؤقتة أثناء التوجيه

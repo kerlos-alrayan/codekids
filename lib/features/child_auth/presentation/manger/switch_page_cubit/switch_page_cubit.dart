@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class IntroCubit extends Cubit<int> {
-  IntroCubit() : super(0);
+class SwitchPageCubit extends Cubit<int> {
+  SwitchPageCubit() : super(0);
 
   void nextStep() {
     if (state < 2) emit(state + 1);

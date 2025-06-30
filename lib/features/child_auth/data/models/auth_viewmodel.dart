@@ -15,10 +15,8 @@ class AuthViewModel extends ChangeNotifier {
   String get loginCode => _loginCode;
   Map<String, int> _levels = {};
   Map<String, int> get levels => _levels;
-
   bool _isInitialized = false;
   bool get isInitialized => _isInitialized;
-
   bool isFirstTime = true;
 
   Future<void> init() async {
@@ -32,7 +30,6 @@ class AuthViewModel extends ChangeNotifier {
     if (levelsString != null) {
       _levels = _decodeLevels(levelsString);
     }
-
 
     if (birthDateStr != null) {
       _birthDate = DateTime.tryParse(birthDateStr);
@@ -68,6 +65,12 @@ class AuthViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setLoginCode(String value) {
+    _loginCode = value;
+    _saveToPrefs('loginCode', value);
+    notifyListeners();
+  }
+
   String _encodeLevels(Map<String, int> levels) {
     return levels.entries.map((e) => '${e.key}:${e.value}').join(',');
   }
@@ -84,12 +87,6 @@ class AuthViewModel extends ChangeNotifier {
     }
 
     return map;
-  }
-
-  void setLoginCode(String value) {
-    _loginCode = value;
-    _saveToPrefs('loginCode', value);
-    notifyListeners();
   }
 
   Future<bool> signInWithCode(BuildContext context, String code) async {
@@ -114,7 +111,6 @@ class AuthViewModel extends ChangeNotifier {
       setBirthDate(child.birthDate);
       setLoginCode(child.loginCode);
       _levels = child.levels;
-
 
       return true;
     } catch (e) {
@@ -154,7 +150,6 @@ class AuthViewModel extends ChangeNotifier {
 
     notifyListeners(); // 🔁 علشان تحدث الـ UI
   }
-
 
   Future<void> submit(BuildContext context, {VoidCallback? onSuccess}) async {
     print("Name: $_name");
@@ -253,6 +248,5 @@ class AuthViewModel extends ChangeNotifier {
     isFirstTime = true;
     notifyListeners();
     _levels = {};
-
   }
 }
